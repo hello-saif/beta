@@ -1,6 +1,4 @@
-
 import 'package:get/get.dart';
-
 import '../Data/Network_caller/Auth_Controller.dart';
 import '../Data/Network_caller/Network_caller.dart';
 import '../Data/Urls/urls.dart';

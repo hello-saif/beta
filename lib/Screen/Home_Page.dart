@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../widget/Drawer.dart';
+import '../widget/TabBar.dart';
+import '../widget/stories,dart.dart';
 import 'Login_Process/Email_Verify.dart';
 
 class Messenger extends StatefulWidget {
@@ -35,7 +37,11 @@ class _MessengerState extends State<Messenger> {
           AppBarIconButton(
             child: const Icon(Icons.login_outlined),
             onTap: () {
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const EmailVerificationScreen()), (route) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const EmailVerificationScreen()),
+                  (route) => false);
             },
           ),
           const SizedBox(width: 8),
@@ -47,9 +53,17 @@ class _MessengerState extends State<Messenger> {
         child: Column(
           children: [
             _buildSearchTextField(),
+             SizedBox(
+              height: 150, // Adjust the height for MyListView
+              child: MyListView(),
+            ),
+            const SizedBox(
+              height: 300, // Adjust the height for MyTabBar
+              child: MyTabBar(),
+            ),
           ],
         ),
-      ),
+      )
     );
   }
 
@@ -63,11 +77,11 @@ class _MessengerState extends State<Messenger> {
         prefixIcon: const Icon(Icons.search),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(48),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(48),
         ),
       ),
     );

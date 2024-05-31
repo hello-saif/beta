@@ -90,7 +90,10 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
 
                 TextButton(
                   onPressed: () {
-
+                    // countdown = initialCountdown;
+                    // startTimer();
+                    // Example: Call a method to resend OTP
+                    // resendOtp();
                   },
                   child: const Text('Resend Code'),
                 ),
