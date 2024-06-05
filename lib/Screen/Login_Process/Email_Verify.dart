@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import '../../State_Holder/Email_verify_Controller.dart';
 import '../../widget/Constant.dart';
+import '../bottomNavBar.dart';
 import 'OTP _Verify.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
@@ -15,13 +17,23 @@ class EmailVerificationScreen extends StatefulWidget {
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailTEController = TextEditingController();
-  final VerifyEmailController _verifyEmailController = Get.put(VerifyEmailController());
+  final VerifyEmailController _verifyEmailController =
+      Get.put(VerifyEmailController());
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+              Icons.arrow_back), // You can change the icon to whatever you need
+          onPressed: () {
+            Get.to(() => const MyBottomNavBar());
+          },
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -54,35 +66,48 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   const SizedBox(height: 16),
                   GetBuilder<VerifyEmailController>(
                     builder: (controller) {
-                      return ElevatedButton(
-                        onPressed: () async {
-                          if (_formKey.currentState!.validate()) {
-                            bool isSuccess = await _verifyEmailController
-                                .verifyEmail(_emailTEController.text);
-                            if (mounted) {
-                              if (isSuccess) {
-                                Get.to(() =>
-                                    OtpVerificationScreen(
-                                      email: _emailTEController.text,
-                                    ));
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      content: Text(
-                                          'Error: ${_verifyEmailController.errorMessage}')),
-                                );
+                      return Column(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween, // Adjust alignment as needed
+                        children: [
+                          ElevatedButton(
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                bool isSuccess = await _verifyEmailController
+                                    .verifyEmail(_emailTEController.text);
+                                if (mounted) {
+                                  if (isSuccess) {
+                                    Get.to(() => OtpVerificationScreen(
+                                        email: _emailTEController.text));
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              'Error: ${_verifyEmailController.errorMessage}')),
+                                    );
+                                  }
+                                }
                               }
-                            }
-                          }
-                        },
-                        child: controller.inProgress
-                            ? const CircularProgressIndicator(
-                          color: Colors.white,
-                        )
-                            : const Text('Next'),
+                            },
+                            child: controller.inProgress
+                                ? const CircularProgressIndicator(
+                                    color: Colors.white)
+                                : const Text('Next'),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () async {},
+                            icon: const FaIcon(
+                              FontAwesomeIcons.google,
+                              size: 25,
+                            ),
+                            label: const Text('Google'),
+                          )
+                        ],
                       );
                     },
-                  ),
+                  )
                 ],
               ),
             ),

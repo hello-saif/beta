@@ -58,10 +58,11 @@ class _MessengerState extends State<Messenger> {
               child: MyListView(),
             ),
             const SizedBox(
-              height: 300, // Adjust the height for MyTabBar
+              height: 2200,
               child: MyTabBar(),
             ),
           ],
+
         ),
       )
     );

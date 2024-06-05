@@ -107,13 +107,11 @@ class Communities_Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-
-
       children: [
         const Padding(padding: EdgeInsets.all(10)),
         ClipOval(
           child: Image.network(
-            'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg', // Replace with your image URL
+            'https://img.freepik.com/premium-photo/bearded-man-illustration_665280-67047.jpg', // Replace with your image URL
             width: 50,
             height: 50,
             fit: BoxFit.cover,

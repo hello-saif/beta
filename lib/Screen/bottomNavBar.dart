@@ -23,10 +23,10 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
 
   final List<Widget> _pages = [
     const Messenger(),
-    const Person(),
+     Person(),
     const Stories(),
-
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person,size: 35,),
-            label: 'Person',
+            label: 'People',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.web_stories,size: 35,),

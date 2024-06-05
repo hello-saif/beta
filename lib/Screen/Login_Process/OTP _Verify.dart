@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../State_Holder/OTP_Verify_Controller.dart';
 import '../Home_Page.dart';
+import 'Email_Verify.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
   final String email;
@@ -52,6 +53,15 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back), // You can change the icon to whatever you need
+          onPressed: () {
+            Get.to(() =>
+            const EmailVerificationScreen());
+          },
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -86,6 +96,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   child: const Text('Next'),
                 ),
                 const SizedBox(height: 24),
+
                 _buildResendCodeMessage(),
 
                 TextButton(
