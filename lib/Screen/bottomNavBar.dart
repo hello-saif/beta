@@ -24,7 +24,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
   final List<Widget> _pages = [
     const Messenger(),
      Person(),
-    const Stories(),
+    StoriesScreen(),
   ];
 
 

@@ -198,6 +198,7 @@ class Person extends StatelessWidget {
       ),
     );
   }
+
 }
 
 class PersonData {
