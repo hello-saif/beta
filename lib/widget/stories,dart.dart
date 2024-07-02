@@ -52,7 +52,7 @@ class MyListView extends StatelessWidget {
                           children: [
                             Container(
                               height: 100,
-                              width: 80,
+                              width: 100,
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Screen/Setting.dart';
+
 class Drawer_Widget extends StatelessWidget {
   const Drawer_Widget({
     super.key,
@@ -36,7 +38,9 @@ class Drawer_Widget extends StatelessWidget {
                     onPressed: () {},
                     icon: Icon(Icons.arrow_drop_down )),
                 Spacer(),
-                IconButton(onPressed: () {}, icon: Icon(Icons.settings))
+                IconButton(onPressed: () {
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const Setting()), (route) => false);
+                }, icon: Icon(Icons.settings))
               ],
             ),
           ),

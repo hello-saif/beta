@@ -63,7 +63,7 @@ class _FirsttabState extends State<Firsttab> {
                   ClipOval(
                     child: Image.network(
                       person['imageUrl']!, // Get the image URL
-                      width: 100,
+                      width: 80,
                       height: 80,
                       fit: BoxFit.cover,
                     ),
