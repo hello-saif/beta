@@ -1,7 +1,11 @@
+import 'package:beta_messenger/Screen/Message%20Request.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Screen/Archive.dart';
+import '../Screen/Marketplace.dart';
 import '../Screen/Setting.dart';
+import '../Screen/bottomNavBar.dart';
 
 class Drawer_Widget extends StatelessWidget {
   const Drawer_Widget({
@@ -49,6 +53,7 @@ class Drawer_Widget extends StatelessWidget {
             leading: Icon(Icons.message),
             title: Text('Chat'),
             onTap: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const MyBottomNavBar()), (route) => false);
               // Handle the tap
             },
           ),
@@ -56,6 +61,8 @@ class Drawer_Widget extends StatelessWidget {
             leading: Icon(Icons.home_work_outlined),
             title: Text('MArketplace'),
             onTap: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const Marketplace ()), (route) => false);
+
               // Handle the tap
             },
           ),
@@ -63,13 +70,17 @@ class Drawer_Widget extends StatelessWidget {
             leading: Icon(Icons.chat_bubble_outline),
             title: Text('Message Request'),
             onTap: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const MessageRequest ()), (route) => false);
+
               // Handle the tap
             },
           ),
           ListTile(
             leading: Icon(Icons.account_balance_wallet_sharp),
-            title: Text('Achive'),
+            title: Text('Archive'),
             onTap: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const Archive ()), (route) => false);
+
               // Handle the tap
             },
           ),
