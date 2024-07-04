@@ -28,10 +28,10 @@ class Drawer_Widget extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
-                Text(
+                const Text(
                   'Saifuddin',
                   style: TextStyle(
                     fontSize: 16, // Increase font size
@@ -39,12 +39,17 @@ class Drawer_Widget extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_drop_down )),
-                Spacer(),
-                IconButton(onPressed: () {
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const Setting()), (route) => false);
-                }, icon: Icon(Icons.settings))
+                    onPressed: () {}, icon: const Icon(Icons.arrow_drop_down)),
+                const Spacer(),
+                IconButton(
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Setting()),
+                          (route) => false);
+                    },
+                    icon: const Icon(Icons.settings))
               ],
             ),
           ),
@@ -53,7 +58,11 @@ class Drawer_Widget extends StatelessWidget {
             leading: Icon(Icons.message),
             title: Text('Chat'),
             onTap: () {
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const MyBottomNavBar()), (route) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MyBottomNavBar()),
+                  (route) => false);
               // Handle the tap
             },
           ),
@@ -61,7 +70,10 @@ class Drawer_Widget extends StatelessWidget {
             leading: Icon(Icons.home_work_outlined),
             title: Text('MArketplace'),
             onTap: () {
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const Marketplace ()), (route) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Marketplace()),
+                  (route) => false);
 
               // Handle the tap
             },
@@ -70,7 +82,11 @@ class Drawer_Widget extends StatelessWidget {
             leading: Icon(Icons.chat_bubble_outline),
             title: Text('Message Request'),
             onTap: () {
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const MessageRequest ()), (route) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const MessageRequest()),
+                  (route) => false);
 
               // Handle the tap
             },
@@ -79,12 +95,15 @@ class Drawer_Widget extends StatelessWidget {
             leading: Icon(Icons.account_balance_wallet_sharp),
             title: Text('Archive'),
             onTap: () {
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const Archive ()), (route) => false);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Archive()),
+                  (route) => false);
 
               // Handle the tap
             },
           ),
-           Row(
+          Row(
             children: [
               const Padding(padding: EdgeInsets.all(10)),
               const Text(
@@ -95,7 +114,7 @@ class Drawer_Widget extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              TextButton(onPressed: (){}, child: const Text('Edit'))
+              TextButton(onPressed: () {}, child: const Text('Edit'))
             ],
           ),
           Column(
@@ -118,6 +137,13 @@ class Communities_Widget extends StatelessWidget {
   const Communities_Widget({
     super.key,
   });
+  String _truncateName(String name) {
+    if (name.length > 15) {
+      return '${name.substring(0, 15)}...';
+    } else {
+      return name;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,29 +161,28 @@ class Communities_Widget extends StatelessWidget {
         const SizedBox(
           width: 15,
         ),
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             Text(
-              'Saifuddin Saifuddin  ',
-              style: TextStyle(
-                fontSize: 16, // Increase font size
+              _truncateName('Saifuddin Nobab 1'),
+              style: const TextStyle(
+                fontSize: 16, // Font size
                 fontWeight: FontWeight.bold, // Make text bold
               ),
-              maxLines: 3,softWrap: true,
+              maxLines: 3,
+              softWrap: true,
               overflow: TextOverflow.visible,
             ),
-            Text(
+            const Text(
               '14.5K active',
               style: TextStyle(
-                fontSize: 10, // Increase font size
+                fontSize: 10, // Font size
               ),
             ),
           ],
         ),
       ],
-
     );
   }
 }
