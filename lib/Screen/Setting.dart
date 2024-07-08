@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../widget/Bkash.dart';
 import '../widget/Dark_mode.dart';
 import 'Home_Page.dart';
 import 'bottomNavBar.dart';
@@ -157,6 +158,7 @@ class _SettingState extends State<Setting> {
             leading: const Icon(Icons.payments),
             title: const Text('Payment'),
             onTap: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const BkashPaymentScreen(title: 'Payment',)), (route) => false);
               // Handle the tap
             },
           ),
